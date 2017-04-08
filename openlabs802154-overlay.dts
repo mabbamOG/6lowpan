@@ -1,0 +1,27 @@
+// overlay to enable spi for my 802.15.4 openlabs atmega antenna
+/dts-v1/;
+/plugin/;
+
+/
+{
+    // im working on rpi 3b and zero, look for these in the foundation kernel dts sources
+    //compatible = "raspberrypi,model-zero", "brcm,bcm2835", "raspberrypi,3-model-b", "brcm,bcm2837"; // all of them? // or is it unrequired?
+    fragment@0
+    {
+        target = <&spi>; // or <&spi0> ??
+        __overlay__
+        {
+            status = "okay"; // i guess?
+            at86rf233@0 
+            {
+                compatible = "atmel,at86rf233";
+                reg = <0>;
+                interrupts = <23 1>;
+                interrupt-parent = <&gpio>;
+                reset-gpio = <&gpio 24 1>;
+                sleep-tpio = <&gpio 25 1>;
+                spi-max-frequency = <500000>;
+            };
+        };
+    };
+};
