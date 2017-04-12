@@ -8,7 +8,7 @@
     //compatible = "raspberrypi,model-zero", "brcm,bcm2835", "raspberrypi,3-model-b", "brcm,bcm2837"; // all of them? // or is it unrequired?
     fragment@0
     {
-        target = <&spi>; // or <&spi0> ??
+        target = <&spi0>; // IF ERRORS USE <&spi0> !!!!!!
         __overlay__
         {
             status = "okay"; // i guess?
