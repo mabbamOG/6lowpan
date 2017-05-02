@@ -20,7 +20,7 @@
                 interrupt-parent = <&gpio>;
                 reset-gpio = <&gpio 24 1>;
                 sleep-tpio = <&gpio 25 1>;
-                spi-max-frequency = <500000>;
+                spi-max-frequency = <500000>; // 500000 was the previous one
             };
         };
     };
